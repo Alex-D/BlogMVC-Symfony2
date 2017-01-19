@@ -69,9 +69,7 @@ class AdminPostController extends AbstractController
                 $em->flush();
 
                 // New post : update post count
-                if ($post->getId() == null) {
-                    $this->updateCategoryPostCount($post->getCategory());
-                }
+                $this->clearCache();
 
                 return $this->redirectAdmin();
             }
